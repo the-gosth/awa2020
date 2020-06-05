@@ -60,15 +60,17 @@
 	</head>
 
 	<body>
-		<nav>
+		<div id='installButtonDiv'>
+			<button id='installButton'>Install</button>
+		</div>
+		<div id='pageLogo'></div>
+		<nav class="light-blue lighten-1">
 			<div class="nav-wrapper blue">
-				<a href="#!" class="brand-logo">Mis tareas</a>
+				<a href="#!" style="width: 100%; font-size:20px;">Mis tareas de la Escuela</a>
 				<a href="#" data-target="mobile-demo" class="sidenav-trigger">
 					<i class="material-icons">menu</i>
 				</a>
-				<div id='installButtonDiv'>
-					<button id='installButton'>Install</button>
-				</div>
+				
 				<ul class="right hide-on-med-and-down">
 					<li><a href="#">Atajo 1</a></li>
 					<li><a href="#">Atajo 2</a></li>
@@ -84,7 +86,7 @@
 			<li><a href="#">Atajo 3</a></li>
 			<li><a href="#">Atajo 4</a></li>
 		</ul>
-		<div id='pageLogo'></div>
+		
 		<div class="section">
 			<h5>Tareas</h5>
 			<ul class="collapsible popout" data-collapsible="accordion">
@@ -132,7 +134,7 @@
 				<li>
 					<div class="collapsible-header">
 						<i class="material-icons">book</i>
-							Literatura
+							Lenguaje y Comunicación
 						<span class="new badge">2</span></div>
 					<div class="collapsible-body">
 						<div class="collection">
@@ -159,7 +161,7 @@
 				<li>
 					<div class="collapsible-header">
 						<i class="material-icons">science</i>
-							Quimica
+							Ciencias Naturales
 						<span class="new badge">1</span></div>
 					<div class="collapsible-body">
 						<form action="#">
@@ -192,27 +194,11 @@
 					</div>
 					<div class="collapsible-body"><p>Descripcion del recurso 2</p></div>
 				</li>
-				<!-- <li>
-					<div class="collapsible-header">
-						
-						Recurso 2
-						<i class="material-icons">cloud_download</i>
-						
-					<div class="collapsible-body"><p>Descripcion del recurso 2</p></div>
-				</li> -->
+				
 			</ul>
 		</div>
 
-				<!-- <nav class="light-blue lighten-1 container">
-			<div class="container center" style="width: 100%; font-size:20px;">Mis tareas de La Escuela</div>
-		</nav> -->
-		<!-- <div class="section container orange">
-			<br>
-			<br>
-			<br>
-			<br>
-			<br>
-		</div> -->
+		
 		<!--  Scripts-->
 		<script>
 			$(document).ready(function(){
