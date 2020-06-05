@@ -1,0 +1,230 @@
+<!doctype html>
+<html lang="es">
+
+	<head>
+		<meta charset="utf-8">
+		<title>Mis Tares de la Escuela</title>
+		<meta name="description" content="A simple app for the tasks from school">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="manifest" href="app.webmanifest">
+
+		<link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
+		<link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
+		<link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
+		<link rel="apple-touch-icon" sizes="76x76" href="/apple-icon-76x76.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/apple-icon-114x114.png">
+		<link rel="apple-touch-icon" sizes="120x120" href="/apple-icon-120x120.png">
+		<link rel="apple-touch-icon" sizes="144x144" href="/apple-icon-144x144.png">
+		<link rel="apple-touch-icon" sizes="152x152" href="/apple-icon-152x152.png">
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-icon-180x180.png">
+		<link rel="icon" type="image/png" sizes="192x192"  href="/android-icon-192x192.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+		<link rel="manifest" href="/manifest.json">
+		<meta name="msapplication-TileColor" content="#ffffff">
+		<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+		<meta name="theme-color" content="#ffffff">
+
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link href="css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link href="css/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+		<link rel="stylesheet" href="css/main.css">
+		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.3/js/materialize.min.js"></script>
+		
+		<script>
+			// does the browser support service workers?
+			if ('serviceWorker' in navigator) {
+			// fires when the service worker is ready
+			navigator.serviceWorker.ready.then(reg => {
+				// we have an active service worker working for us
+				console.log(`Service Worker ready (Scope: ${reg.scope})`);
+				// do something interesting, if you want...
+			});
+			// then register our service worker
+			navigator.serviceWorker.register('./sw.js')
+				.then(function (reg) {
+				// display a success message
+				console.log(`Service Worker Registration (Scope: ${reg.scope})`);
+				})
+				.catch(function (error) {
+				// display an error message
+				console.log(`Service Worker Error (${error})`);
+				});
+			} else {
+			// happens when the app isn't served over a TLS connection (HTTPS)
+			console.warn('Service Worker not available');
+			}
+		</script>
+	</head>
+
+	<body>
+		<nav>
+			<div class="nav-wrapper blue">
+				<a href="#!" class="brand-logo">Mis tareas</a>
+				<a href="#" data-target="mobile-demo" class="sidenav-trigger">
+					<i class="material-icons">menu</i>
+				</a>
+				<div id='installButtonDiv'>
+					<button id='installButton'>Install</button>
+				</div>
+				<ul class="right hide-on-med-and-down">
+					<li><a href="#">Atajo 1</a></li>
+					<li><a href="#">Atajo 2</a></li>
+					<li><a href="#">Atajo 3</a></li>
+					<li><a href="#">Atajo 4</a></li>
+				</ul>
+			</div>
+		</nav>
+		
+		<ul class="sidenav" id="mobile-demo">
+			<li><a href="#">Atajo 1</a></li>
+			<li><a href="#">Atajo 2</a></li>
+			<li><a href="#">Atajo 3</a></li>
+			<li><a href="#">Atajo 4</a></li>
+		</ul>
+		<div id='pageLogo'></div>
+		<div class="section">
+			<h5>Tareas</h5>
+			<ul class="collapsible popout" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">calculate</i>
+							Matemáticas
+						<span class="new badge">4</span>
+					</div>
+					<div class="collapsible-body">
+						<form action="#">
+							<form action="#">
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 1</span>
+									</label>
+								</p>
+								<div class="divider"></div>
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 2</span>
+									</label>
+								</p>
+								<div class="divider"></div>
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 3</span>
+									</label>
+								</p>
+								<div class="divider"></div>
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 4</span>
+									</label>
+								</p>
+							</form>
+						</form>						
+					</div>
+				</li>
+
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">book</i>
+							Literatura
+						<span class="new badge">2</span></div>
+					<div class="collapsible-body">
+						<div class="collection">
+							<form action="#">
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 1</span>
+									</label>
+								</p>
+								<div class="divider"></div>
+								<p>
+									<label>
+										<input type="checkbox" class="filled-in"/>
+										<span>Descripcion de la tarea 2</span>
+									</label>
+								</p>
+
+							</form>
+						</div>
+					</div>
+				</li>
+
+				<li>
+					<div class="collapsible-header">
+						<i class="material-icons">science</i>
+							Quimica
+						<span class="new badge">1</span></div>
+					<div class="collapsible-body">
+						<form action="#">
+							<p>
+								<label>
+									<input type="checkbox" class="filled-in" />
+									<span>Descripcion de la tarea 1</span>
+								</label>
+							</p>
+						  </form>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="divider"></div>
+		<div class="section">
+			<h5>Recursos</h5>
+			<ul class="collapsible popout" data-collapsible="accordion">
+				<li>
+					<div class="collapsible-header">
+						Recurso 1
+						<span class="badge"><button>Descargar</button></span>
+					</div>
+					<div class="collapsible-body"><p>Descripcion del recurso 1</p></div>
+				</li>
+				<li>
+					<div class="collapsible-header">
+						Recurso 2
+						<span class="badge"><button>Descargar</button></span>
+					</div>
+					<div class="collapsible-body"><p>Descripcion del recurso 2</p></div>
+				</li>
+				<!-- <li>
+					<div class="collapsible-header">
+						
+						Recurso 2
+						<i class="material-icons">cloud_download</i>
+						
+					<div class="collapsible-body"><p>Descripcion del recurso 2</p></div>
+				</li> -->
+			</ul>
+		</div>
+
+				<!-- <nav class="light-blue lighten-1 container">
+			<div class="container center" style="width: 100%; font-size:20px;">Mis tareas de La Escuela</div>
+		</nav> -->
+		<!-- <div class="section container orange">
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+		</div> -->
+		<!--  Scripts-->
+		<script>
+			$(document).ready(function(){
+  				$('.sidenav').sidenav();
+			});
+			$(document).ready(function(){
+  				$('.character-counter').hide();
+			});
+		</script>
+		
+		<script src="js/materialize.js"></script>
+		<script src="js/init.js"></script>
+		<script src="js/main.js"></script>
+	</body>
+</html>
