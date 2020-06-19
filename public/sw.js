@@ -33,7 +33,7 @@ self.addEventListener('activate', event => {
     console.dir(event);
 });
 
-self.addEventListener('fetch', event => {
+/*self.addEventListener('fetch', event => {
     // Fires whenever the app requests a resource (file or data)
     // normally this is where the service worker would check to see
     // if the requested resource is in the local cache before going
@@ -45,4 +45,35 @@ self.addEventListener('fetch', event => {
     // Next, go get the requested resource from the network, 
     // nothing fancy going on here.
     event.respondWith(fetch(event.request));
-});
+});*/
+var cacheName = 'bestEver';
+
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+    .then((response) => {
+      if (response) {
+        return response;
+      }
+
+      let fetchRequest = event.request.clone();
+
+      return fetch(fetchRequest).then(
+        (fetchResponse) => {
+          if(!fetchResponse || fetchResponse.status !== 200) {
+            return fetchResponse;
+          }
+
+          let responseToCache = fetchResponse.clone();
+
+          caches.open(cacheName)
+          .then((cache) => {
+            cache.put(event.request, responseToCache);
+          })
+
+          return fetchResponse;
+        }
+      )
+    })
+  )
+})
