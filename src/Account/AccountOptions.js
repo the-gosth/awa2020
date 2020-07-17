@@ -1,7 +1,6 @@
 import React from 'react';
-import Element from '../element/Element'
 import 'materialize-css';
-import { Container, Nav, Navbar, NavItem, SideNavItem, SideNav, Icon, Button} from 'react-materialize';
+import {SideNavItem, SideNav, Icon, Button} from 'react-materialize';
 
 class AccountOptions extends React.Component{
     render(){

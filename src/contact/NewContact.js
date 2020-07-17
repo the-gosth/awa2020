@@ -3,7 +3,6 @@ import 'materialize-css';
 import {Container, Section, TextInput, Row, Col, CardPanel} from 'react-materialize';
 
 class NewContact extends React.Component{
-    //TODO: Complete react form...
     render(){
         return(
             <Container>
