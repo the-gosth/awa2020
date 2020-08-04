@@ -30,10 +30,45 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
         <link rel="stylesheet" href="css/style.css">
+
+        <script type="text/javascript" src="js/libs/jquery.js"></script>
+        <script type="text/javascript" src="js/libs/materialize.js"></script>
 		
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
     <body>
+        <script>
+            $(document).ready(function(){
+                const api_url = 'https://primera-api-rest.herokuapp.com/tareas/';
+                async function getJsonContent(){
+                    const response = await fetch(api_url);
+                    const data = await response.json();
+                    data.forEach(element => {
+                        $("#tareas").append(
+                            '<li class="collection-item">'+
+                                '<div class="row">'+
+                                    '<div class="col s12 m7">'+
+                                        '<div class="card">'+
+                                            '<div class="card-image">'+
+                                                '<img src="'+element.recurso+'">'+
+                                                '<span class="card-title">'+element.titulo+'</span>'+
+                                            '</div>'+
+                                            '<div class="card-content">'+
+                                                '<p>'+element.descripcion+'</p>'+
+                                            '</div>'+
+                                            '<div class="card-action">'+
+                                                '<a href="'+ element.recurso +'">La tarea aqui</a>'+
+                                            '</div>'+
+                                        '</div>'+
+                                    '</div>'+
+                                '</div>'+
+                            '</li>'); 
+                        }
+                    );
+                }
+                getJsonContent();
+            });
+        </script>
         <header> 
             <ul id="slide-out" class="sidenav blue lighten-5">
                 <li>
@@ -59,7 +94,7 @@
                     <i class="material-icons">menu</i>
                 </a>        
                 <div class="nav-wrapper">
-                    <a href="#" class="brand-logo center app_title">Mi escuelita</a>
+                    <a href="index.html" class="brand-logo center app_title">Mi escuelita</a>
                 </div>
                 
                     <button id='installButton'>Install</button>
@@ -69,7 +104,10 @@
 
         <main class="lime lighten-4">
             <div class="container">
-                <h3>Este es una prueba</h3>
+                <h3>Mis tareas</h3>
+                    <ul id ="tareas" class="collection">
+                        <!-- aqui va todas las tareas -->
+                    </ul>
             </div>
         </main>
 
@@ -82,8 +120,7 @@
         </footer>
 
         <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="js/libs/jquery.js"></script>
-        <script type="text/javascript" src="js/libs/materialize.js"></script>
+        
         <script type="text/javascript" src="js/reg_sw.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <script src="https://www.gstatic.com/firebasejs/7.16.1/firebase-app.js"></script>
