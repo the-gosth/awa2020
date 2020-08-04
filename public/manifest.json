@@ -1,5 +1,10 @@
 {
- "name": "App",
+ "name": "MiEscuelita",
+ "short_name": "MiEscuelita",
+  "start_url": "/index.html",
+  "display": "standalone",
+  "background_color": "#FFE9D2",
+  "orientation": "portrait-primary",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
